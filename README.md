@@ -4,7 +4,7 @@
 A curated list of awesome Node.js Security resources.
 
 ![#](https://badgen.net/badge/tools/30+/blue)
-![#](https://badgen.net/badge/incidents/5+/red)
+![#](https://badgen.net/badge/incidents/10+/red)
 ![#](https://badgen.net/badge/educational/8+/green)
 
 [![liran_tal](https://badgen.net/twitter/follow/liran_tal)](https://twitter.com/liran_tal)
@@ -38,6 +38,7 @@ A curated list of awesome Node.js Security resources.
 - [Helmet](https://www.npmjs.com/package/helmet) - Helmet helps you secure your Express apps by setting various HTTP headers.
 - [koa-helmet](https://www.npmjs.com/package/koa-helmet) - koa-helmet helps you secure your Koa apps by setting various HTTP headers.
 - [blankie](https://github.com/nlf/blankie) - CSP plugin for [hapi](https://github.com/hapijs/hapi).
+- [fastify-helmet](https://github.com/fastify/fastify-helmet) - fastify-helmet helps you secure your [fastify](https://www.fastify.io/) apps by setting important secutiry headers.
 
 ## Static Code Analysis
 - [eslint-plugin-security](https://www.npmjs.com/package/eslint-plugin-security) - ESLint rules for Node Security. This project will help identify potential security hotspots, but finds a lot of false positives which need triage by a human.
@@ -53,6 +54,9 @@ A curated list of awesome Node.js Security resources.
 - [lockfile-lint](https://github.com/lirantal/lockfile-lint) - lint lockfiles for improved security and trust policies to keep clean from malicious package injection and other insecure configurations.
 - [pkgsign](https://github.com/RedpointGames/pkgsign) - A CLI tool for signing and verifying npm and yarn packages.
 - [sast-scan](https://github.com/AppThreat/sast-scan) - Fully open-source SAST scanner supporting a range of languages and frameworks.
+- [semgrep](https://semgrep.dev) - Open-source, offline, easy-to-customize static analysis for many languages. Some others on this list (NodeJSScan) use semgrep as their engine.
+- [npm-scan](https://github.com/spaceraccoon/npm-scan) - An extensible, heuristic-based vulnerability scanning tool for installed npm packages.
+- [js-x-ray](https://github.com/fraxken/js-x-ray) - JavaScript and Node.js SAST scanner capable of detecting various well-known malicious code patterns (Unsafe import, Unsafe stmt, Unsafe RegEx, encoded literals, minified and obfuscated codes).
 
 ## Input Validation & Output Encoding
 - [node-esapi](https://www.npmjs.com/package/node-esapi) - node-esapi is a minimal port of the ESAPI4JS (Enterprise Security API for JavaScript) encoder.
@@ -60,6 +64,8 @@ A curated list of awesome Node.js Security resources.
 - [js-string-escape](https://www.npmjs.com/package/js-string-escape) - Escape any string to be a valid JavaScript string literal between double quotes or single quotes.
 - [validator](https://github.com/chriso/validator.js) - An npm library of string validators and sanitizers.
 - [xss-filters](https://www.npmjs.com/package/xss-filters) - Just sufficient output filtering to prevent XSS!
+- [DOMPurify](https://github.com/cure53/DOMPurify) - a DOM-only, super-fast, uber-tolerant XSS sanitizer for HTML, MathML and SVG.
+- [envalid](https://github.com/af/envalid) - Envalid is a small library for validating and accessing environment variables in Node.js.
 
 ## Secure Composition
 - [pug-plugin-trusted-types](https://www.npmjs.com/package/pug-plugin-trusted-types) - Pug template plugin makes it easy to securely compose HTML from untrusted inputs and provides CSP & CSRF [automagic](https://www.npmjs.com/package/pug-plugin-trusted-types#hdr-automagic).
@@ -69,6 +75,7 @@ A curated list of awesome Node.js Security resources.
 ## CSRF
 - [csurf](https://www.npmjs.com/package/csurf) - Node.js CSRF protection middleware.
 - [crumb](https://github.com/hapijs/crumb) - CSRF crumb generation and validation for [hapi](https://github.com/hapijs/hapi).
+- [fastify-csrf](https://github.com/fastify/fastify-csrf) - A plugin for adding CSRF protection to [fastify](https://www.fastify.io).
 
 ## Vulnerabilities and Security Advisories
 - [npq](https://github.com/lirantal/npq) - Safely install packages with npm or yarn by auditing them as part of your install process.
@@ -81,6 +88,7 @@ A curated list of awesome Node.js Security resources.
 - [patch-package](https://www.npmjs.com/package/patch-package) - Allows app authors to create fixes for npm dependencies (in node_modules) without forking or waiting for merged PRs, by creating and applying patches.
 - [check-my-headers](https://github.com/UlisesGascon/check-my-headers) - Fast and simple way to check any HTTP Headers.
 - [is-website-vulnerable](https://github.com/lirantal/is-website-vulnerable/) - finds publicly known security vulnerabilities in a website's frontend JavaScript libraries.
+- [joi-security](https://github.com/Saluki/joi-security/) - Detect security flaws in Joi validation schemas.
 
 ## Security Hardening
 - [express-limiter](https://www.npmjs.com/package/express-limiter) - Rate limiting middleware for Express applications built on redis.
@@ -88,12 +96,18 @@ A curated list of awesome Node.js Security resources.
 - [rate-limiter-flexible](https://www.npmjs.com/package/rate-limiter-flexible) - Fast, flexible and friendly rate limiter by key and protection from DDoS and brute force attacks in process Memory, Cluster, Redis, MongoDb, MySQL, PostgreSQL at any scale. Express and Koa examples included.
 - [tor-detect-middleware](https://github.com/UlisesGascon/tor-detect-middleware) Tor detect middleware for express
 - [express-enforces-ssl](https://github.com/hengkiardo/express-enforces-ssl) Enforces SSL for Express based Node.js projects. It is however highly advised that you handle SSL and global HTTP rules in a front proxy.
+- [bourne](https://github.com/hapijs/bourne) `JSON.parse()` drop-in replacement with prototype poisoning protection.
+- [fastify-rate-limit](https://github.com/fastify/fastify-rate-limit) A low overhead rate limiter for your routes.
+- [secure-json-parse](https://github.com/fastify/secure-json-parse) `JSON.parse()` drop-in replacement with prototype poisoning protection.
 
 
 # Security Incidents
 
 Collection of security incidents that happened in the Node.js, JavaScript and npm related communities with supporting articles:
 
+* **discord malicious npm package** - Npm package caught stealing sensitive Discord and browser files [[sonatype](https://blog.sonatype.com/discord.dll-successor-to-npm-fallguys-)],  [[zdnet](https://www.zdnet.com/article/npm-package-caught-stealing-sensitive-discord-and-browser-files/)].
+* **twilio-npm** - malicious npm package opens backdoors on programmers' computers. References[[zdnet](https://www.zdnet.com/article/malicious-npm-package-opens-backdoors-on-programmers-computers)]
+* **fallguys** - malicious package stealing sensitive files. References [[zdnet](https://www.zdnet.com/article/malicious-npm-package-caught-trying-to-steal-sensitive-discord-and-browser-files/)]
 * **is-promise** - one-liner library breaks an ecosystem. References: [[Forbes Lindesay - Maintainer post-mortem]](https://medium.com/javascript-in-plain-english/is-promise-post-mortem-cab807f18dcc), [[snyk's postmortem]](https://snyk.io/blog/why-did-is-promise-happen-and-what-can-we-learn-from-it/)
 * **EasyDEX-GUI** - malicious code found in npm package event-stream. References: [[npm]](https://blog.npmjs.org/post/185397814280/plot-to-steal-cryptocurrency-foiled-by-the-npm), [[snyk]](https://snyk.io/blog/yet-another-malicious-package-found-in-npm-targeting-cryptocurrency-wallets), [[komodo announcement]](https://komodoplatform.com/update-agama-vulnerability/)
 * **event-stream** - malicious code found in npm package event-stream. References: [[github issue]](https://github.com/dominictarr/event-stream/issues/116) [[snyk]](https://snyk.io/blog/malicious-code-found-in-npm-package-event-stream), [[snyk's postmortem]](https://snyk.io/blog/a-post-mortem-of-the-malicious-event-stream-backdoor),  [[schneid]](https://schneid.io/blog/event-stream-vulnerability-explained/), [[intrinsic]](https://medium.com/intrinsic/compromised-npm-package-event-stream-d47d08605502), [[npm]](https://blog.npmjs.org/post/180565383195/details-about-the-event-stream-incident), [[jayden]](https://jaydenseric.com/blog/event-stream-compromise), [[hillel wayne's postmortem]](https://www.hillelwayne.com/post/stamping-on-eventstream/)
@@ -125,6 +139,9 @@ Another resource for malicious incidents is [BadJS](https://badjs.org/) - a repo
  - [10 npm security best practices](https://snyk.io/blog/ten-npm-security-best-practices/)
  - [OWASP Cheat Sheet Series - Node.js Security Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Nodejs_security_cheat_sheet.html)
  - [What is a backdoor? Let’s build one with Node.js](https://snyk.io/blog/what-is-a-backdoor/)
+ - [The Anatomy of a Malicious Package](https://blog.phylum.io/malicious-javascript-code-in-npm-malware/)
+ - [Why npm lockfiles can be a security blindspot for injecting malicious modules](https://snyk.io/blog/why-npm-lockfiles-can-be-a-security-blindspot-for-injecting-malicious-modules/)
+ - [GitHub Actions to securely publish npm packages](https://snyk.io/blog/github-actions-to-securely-publish-npm-packages/)
 
 ## Books
 - [Secure Your Node.js Web Application: Keep Attackers Out and Users Happy](https://www.amazon.com/Secure-Your-Node-js-Web-Application-ebook/dp/B01BPPUP30) by Karl Duuna, 2016
@@ -134,14 +151,12 @@ Another resource for malicious incidents is [BadJS](https://badjs.org/) - a repo
 - [Web Developer Security Toolbox
 ](https://leanpub.com/b/webdevelopersecuritytoolbox) - Bundled Node.js and Web Security Books.
 
-
 # Companies
 - [Snyk](https://snyk.io) - A developer-first solution that automates finding & fixing vulnerabilities in your dependencies.
 - [Sqreen](https://sqreen.io) - Automated security for your web apps - real time application security protection.
 - [Intrinsic](https://intrinsic.com) - Intrinsic secures your sensitive data from bugs and malicious code, allowing you to run all code safely.
 - [NodeSource](https://nodesource.com) - Mission-critical Node.js applications. Provides N|Solid and Node Certified Modules.
 - [GuardRails](https://www.guardrails.io) - A GitHub App that gives you instant security feedback in your Pull Requests.
-- [Shieldfy](https://shieldfy.io) - Automated security code review for your code and dependencies.
 
 # Contributing
 Found an awesome project, package, article, other type of resources related to Node.js Security? Send me a pull request!
@@ -149,7 +164,6 @@ Just follow the [guidelines](/CONTRIBUTING.md). Thank you!
 
 ---
 say *hi* on [Twitter](https://twitter.com/liran_tal)
-
 
 ## License
 [![CC0](http://mirrors.creativecommons.org/presskit/buttons/88x31/svg/cc-zero.svg)](http://creativecommons.org/publicdomain/zero/1.0/)
